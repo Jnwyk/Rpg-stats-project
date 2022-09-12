@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt');
 const User = require('../models/user.models.js');
 
 exports.getUsers = async (req, res) => {
@@ -13,6 +14,13 @@ exports.getUsers = async (req, res) => {
 exports.createUser = async (req, res) => {
     const {username, password, email, profileImage, role} = req.body;
     const user = new User({ username, password, email, profileImage, role});
+    bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(user.password, salt, (err, hash) => {
+            if(err)
+                throw err;
+            user.password = hash;
+        });
+    });
     try{
         await user.save();
         res.status(201).json({ success: true, msg: user});
@@ -39,3 +47,7 @@ exports.updateUser = (req, res) => {
 exports.deleteUser = (req, res) => {
     res.send('SUCCESS');
 };
+
+exports.loginUser = async (req, res) => {
+    res.send(req.user);
+}

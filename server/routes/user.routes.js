@@ -1,15 +1,21 @@
 const express = require('express');
-const { getUsers, createUser, getOneUser, updateUser, deleteUser } = require('../controllers/user.controllers.js');
+const passport = require('passport');
+const { getUsers, createUser, getOneUser, updateUser, deleteUser, loginUser } = require('../controllers/user.controllers.js');
 
 const router = express.Router();
 
 router.route('/')
     .get(getUsers)
-    .post(createUser)
 
 router.route('/:id')
     .get(getOneUser)
     .patch(updateUser)
     .delete(deleteUser)
+
+router.route('/login')
+    .post(passport.authenticate('local', {failureRedirect: '/login'}),  loginUser)
+
+router.route('/register')
+    .post(createUser)
 
 module.exports = router;
