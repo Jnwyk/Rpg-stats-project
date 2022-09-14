@@ -2,7 +2,7 @@
 
 @keyframes moving-bg {
     0% {background-position: 0 0;}
-    50% { background-position: 40% 40%;}
+    50% { background-position: 50% 30%;}
     100% {background-position: 0 0 ;}
 }
 
@@ -20,6 +20,6 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     animation-name: moving-bg;
-    animation-duration: 60s;
+    animation-duration: 90s;
     animation-iteration-count: infinite;
 }
