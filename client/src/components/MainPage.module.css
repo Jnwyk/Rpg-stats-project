@@ -1,0 +1,17 @@
+.container{
+    transform: translate(30vw, 30vh);
+    max-width: 40%;
+}
+
+.header-main{
+    font-size: 4rem;
+    font-weight: 700;
+    text-align: center;
+    color: white;
+}
+
+.button-container{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}

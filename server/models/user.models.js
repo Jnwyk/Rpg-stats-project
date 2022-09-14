@@ -4,8 +4,14 @@ const schema = mongoose.Schema({
     username: String,
     password: String,
     email: String,
-    profileImage: String,
-    role: ['admin', 'user'],
+    profileImage: {
+        type: String,
+        default: 'none'
+    },
+    role: {
+        type: ['admin', 'user'],
+        default: 'user'
+    },
     createdAt: {
         type: Date,
         default: new Date()

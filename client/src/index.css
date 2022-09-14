@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:wght@400;700&display=swap');
+
+@keyframes moving-bg {
+    0% {background-position: 0 0;}
+    50% { background-position: 40% 40%;}
+    100% {background-position: 0 0 ;}
+}
+
+*{
+    box-sizing: border-box;
+}
+
+html{
+    font-family: 'Lobster Two', sans-serif;
+}
+
+body{
+    margin: 0;
+    background-image: url('../images/background-map-1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation-name: moving-bg;
+    animation-duration: 60s;
+    animation-iteration-count: infinite;
+}
